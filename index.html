@@ -81,8 +81,8 @@ footer{text-align:center;padding:30px;background:#000;color:#777}
 <div class="grid">
 <div class="card"><img src="https://images.unsplash.com/photo-1611501275019-9b5cda994e8d?w=800&q=80" alt="Blackwork Sleeve Tattoo"><div><b>Blackwork Sleeve</b><p>Bold & Clean - By Divan</p></div></div>
 <div class="card"><img id="portrait-photo" src="IMG_3637.jpeg" alt="Divan Tattooz studio logo" style="object-fit:contain"><div><b>Portrait Tattoo</b><p>See Divan’s work on <a href="https://www.tiktok.com/@divantattoo" target="_blank" rel="noopener noreferrer">TikTok</a></p></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1610694955371-d4a3e0ce4b52?w=800&q=80" alt="Nose Piercing"><div><b>Nose Piercing</b><p>Safe & Sterile Piercing</p></div></div>
-<div class="card"><img src="https://images.unsplash.com/photo-1610694955371-d4a3e0ce4b52?w=800&q=80" alt="Ear Piercing"><div><b>Ear Piercing</b><p>Helix, Lobe & More</p></div></div>
+<div class="card"><img id="nose-piercing-photo" src="IMG_3637.jpeg" alt="Nose Piercing"><div><b>Nose Piercing</b><p>Safe & Sterile Piercing</p></div></div>
+<div class="card"><img id="ear-piercing-photo" src="IMG_3637.jpeg" alt="Ear Piercing"><div><b>Ear Piercing</b><p>Helix, Lobe & More</p></div></div>
 </div>
 <div class="tiktok" style="margin-top:25px">
 <h3>Follow on TikTok 🔥</h3><p style="color:#aaa;margin:10px 0">@divantattoo - 3,219 Followers | 54.8K Likes</p>
@@ -126,6 +126,10 @@ footer{text-align:center;padding:30px;background:#000;color:#777}
 
 <script>
 Promise.all([1,2,3,4,5,6].map(i=>fetch('portrait-'+i+'.txt').then(r=>{if(!r.ok)throw Error('Image unavailable');return r.text()}))).then(parts=>{const bytes=Uint8Array.from(atob(parts.join('')),c=>c.charCodeAt(0));const img=document.getElementById('portrait-photo');img.src=URL.createObjectURL(new Blob([bytes],{type:'image/jpeg'}));img.alt='Portrait tattoo';img.style.objectFit='cover'}).catch(()=>{});
+</script>
+<script>
+Promise.all(Array.from({length:5},(_,i)=>fetch('nose-piercing-'+(i+1)+'.txt').then(r=>{if(!r.ok)throw Error('Image unavailable');return r.text()}))).then(parts=>{const bytes=Uint8Array.from(atob(parts.join('')),c=>c.charCodeAt(0));document.getElementById('nose-piercing-photo').src=URL.createObjectURL(new Blob([bytes],{type:'image/jpeg'}))}).catch(()=>{});
+Promise.all(Array.from({length:5},(_,i)=>fetch('ear-piercing-'+(i+1)+'.txt').then(r=>{if(!r.ok)throw Error('Image unavailable');return r.text()}))).then(parts=>{const bytes=Uint8Array.from(atob(parts.join('')),c=>c.charCodeAt(0));document.getElementById('ear-piercing-photo').src=URL.createObjectURL(new Blob([bytes],{type:'image/jpeg'}))}).catch(()=>{});
 </script>
 </body>
 </html>
