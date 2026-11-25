@@ -93,11 +93,11 @@ footer{text-align:center;padding:30px;background:#000;color:#777}
 <section id="booking">
 <h2 style="text-align:center">Book Your <span>Session</span></h2>
 <p class="sub" style="text-align:center">Fill this form - Divan will get it on WhatsApp +256 750 523199</p>
-<form onsubmit="window.open('https://wa.me/256750523199?text=Hi Divan, I want to book: '+document.getElementById('serv').value+' - My Name: '+document.getElementById('nm').value,'_blank');return false;">
+<form onsubmit="var msg='Hi Divan, I want to book: '+document.getElementById('serv').value+'\nMy Name: '+document.getElementById('nm').value+'\nPhone: '+document.getElementById('phone').value+'\nIdea: '+document.getElementById('idea').value;window.open('https://wa.me/256750523199?text='+encodeURIComponent(msg),'_blank');return false;">
 <input id="nm" placeholder="Your Full Name" required>
-<input placeholder="Phone / WhatsApp Number" required>
+<input id="phone" placeholder="Phone / WhatsApp Number" required>
 <select id="serv"><option>Small Tattoo - 20,000 UGX</option><option>Medium Tattoo - 45,000 UGX</option><option>Large Tattoo / Sleeve - 50,000 UGX</option><option>Cover-Up - 25,000 UGX</option><option>Piercing - 30,000 UGX</option><option>Music Video Production</option><option>Custom Art</option></select>
-<textarea placeholder="Describe your tattoo / video idea..." rows="4"></textarea>
+<textarea id="idea" placeholder="Describe your tattoo / video idea..." rows="4"></textarea>
 <button class="btn" style="width:100%">BOOK ON WHATSAPP →</button>
 </form>
 <div style="text-align:center;margin-top:20px"><a href="https://wa.me/256750523199?text=Hi Divan, I want to book a tattoo" class="btn-wa" target="_blank">💬 CHAT ON WHATSAPP +256 750 523199</a></div>
